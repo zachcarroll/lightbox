@@ -1,0 +1,60 @@
+This is my html, css, and jquery for an original, barebones lightbox.  
+Utilizes a trigger div that toggles using jquery between .hidden and not.
+Great for expanding an individual image on a page.  If you want to use it 
+for multiple images, just repeat the html below for each image.  
+
+
+HTML
+<div class = "lightboxTrigger">
+	<a href = "image.jpg"><img class= "thumbnail" src = "image_thumbnail.jpg" /> </a>
+	<div class = "lightboxContainer hidden">
+		<div class = "lightbox">
+			<img src ="image.jpg" />
+		</div>
+	</div>
+</div>
+
+
+
+Javascript
+$(function() {
+	$('div.lightboxTrigger').click
+    	(function() {
+			$('div.lightboxContainer', this).toggleClass('hidden');
+      	});
+    $('div.lightboxTrigger').click
+    	(function(event) {
+			event.preventDefault();
+      	});
+});
+
+
+CSS
+.thumbnail {
+	float: left;
+	border: 4px solid #4F4F4F;
+	margin: 5px 5px 5px 0px;
+}
+
+.lightboxContainer {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	background: rgba(79, 79, 79, .7);
+	z-index: 100;
+}
+
+.lightbox img {
+	display: block;
+	border: 5px solid white;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5%;
+}
+
+.hidden {
+	display: none;
+}
